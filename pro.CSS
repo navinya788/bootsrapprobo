@@ -1,0 +1,19 @@
+.p1{
+    background-color: aqua;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 10px;
+}
+.n1{
+    background-color: black;
+    color: bisque;
+    display: inline;
+}
+.p3{
+    float: left;
+}
+.d1{
+    
+    padding-left:200px ;
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .error{
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <h1> Form Register </h1>
+    <form onsubmit="return validateform()">
+        Username:<input type="text" id="n1" /><br />
+        Contact:<input type="text" id="n2" /><br />
+        Password:<input type="password" id="n3" /><br />
+        Confirm Password:<input type="password" id="n4" /><br />
+        <button type="SUBMIT" value="submit your data">Submit</button></form>
+        <div id="errorMessages" class="error"></div>
+        <script>
+
+
+            function validateform(){
+                var a=document.getElementById("n1").value;
+                var b=document.getElementById("n2").value;
+                var c=document.getElementById("n3").value;
+                var d=document.getElementById("n4").value;
+                var errorMessages="";
+
+
+
+                if(a==""||b==""||c==""||d=="") {
+                    errorMessages+="All Fields Are Mandatory.<br />";
+                }
+
+                var contactPattern= /^[^@]+@[^@]+\.[a-zA-Z]{2,}$|^\d{10}$/;
+                if (!contactPattern.test(b)) {
+                    errorMessages+="or 10-digit phone number.<br />";
+                }
+
+                if(c.length<8){
+                    errorMessages+="Password must be of at least 8 characters long.<br />";
+                }
+
+                if(c!==d){
+                    errorMessages+="Password do not match.<br />";
+                }
+
+                if(errorMessages){
+                    document.getElementById("errorMessages").  innerHTML=errorMessages;
+                    return false;
+                }
+
+                return true;
+                            }
+        </script>
+</body>
+</html>
